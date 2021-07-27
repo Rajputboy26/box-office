@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-const */
-/* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
+import Cast from '../Component/Show/Cast';
+import Details from '../Component/Show/Details';
+import Seasons from '../Component/Show/Seasons';
+import ShowMainData from '../Component/Show/ShowMainData';
 import { apiGet } from '../Misc/Config';
 
 const reducer = (prevState, action) => {
@@ -60,7 +60,36 @@ const Show = () => {
   if (error) {
     return <div>Error occured:{error}</div>;
   }
-  return <div>hi surya</div>;
+  return (
+    <div>
+      <ShowMainData
+        image={show.image}
+        name={show.name}
+        rating={show.rating}
+        summary={show.summary}
+        tags={show.genres}
+      />
+      <div>
+        <h2>
+          <Details
+            status={show.status}
+            network={show.network}
+            premiered={show.premiered}
+          />
+        </h2>
+      </div>
+      <div>
+        <h2>
+          <Seasons seasons={show._embedded.seasons} />
+        </h2>
+      </div>
+      <div>
+        <h2>
+          <Cast cast={show._embedded.cast} />
+        </h2>
+      </div>
+    </div>
+  );
 };
 
 export default Show;
