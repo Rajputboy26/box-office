@@ -63,7 +63,7 @@ const Home = () => {
             value="shows"
             checked={isShowSearch}
             onChange={onRadioChange}
-          ></input>
+          />
         </label>
         <label htmlFor="actor-search">
           Actors
@@ -73,7 +73,7 @@ const Home = () => {
             value="people"
             checked={!isShowSearch}
             onChange={onRadioChange}
-          ></input>
+          />
         </label>
       </div>
       <button type="button" onClick={onSearch}>
