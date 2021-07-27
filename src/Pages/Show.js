@@ -5,6 +5,7 @@ import Details from '../Component/Show/Details';
 import Seasons from '../Component/Show/Seasons';
 import ShowMainData from '../Component/Show/ShowMainData';
 import { apiGet } from '../Misc/Config';
+import { InfoBlock, ShowPageWrapper } from './Show.styled';
 
 const reducer = (prevState, action) => {
   switch (action.type) {
@@ -61,7 +62,7 @@ const Show = () => {
     return <div>Error occured:{error}</div>;
   }
   return (
-    <div>
+    <ShowPageWrapper>
       <ShowMainData
         image={show.image}
         name={show.name}
@@ -69,7 +70,7 @@ const Show = () => {
         summary={show.summary}
         tags={show.genres}
       />
-      <div>
+      <InfoBlock>
         <h2>
           <Details
             status={show.status}
@@ -77,18 +78,18 @@ const Show = () => {
             premiered={show.premiered}
           />
         </h2>
-      </div>
-      <div>
+      </InfoBlock>
+      <InfoBlock>
         <h2>
           <Seasons seasons={show._embedded.seasons} />
         </h2>
-      </div>
-      <div>
+      </InfoBlock>
+      <InfoBlock>
         <h2>
           <Cast cast={show._embedded.cast} />
         </h2>
-      </div>
-    </div>
+      </InfoBlock>
+    </ShowPageWrapper>
   );
 };
 
