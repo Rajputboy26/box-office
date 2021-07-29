@@ -8,11 +8,11 @@ const ShowMainData = ({ name, rating, summary, tags, image }) => {
   return (
     <MainDataWrapper>
       <img src={image ? image.original : IMG_PLACEHOLDER} alt="show-cover" />
-      <div classNam="text-side">
+      <div className="text-side">
         <Headline>
           <h1> {name} </h1>
           <div>
-            <Star />
+            <Star active />
             <span>{rating.average || 'N/A'}</span>
           </div>
         </Headline>

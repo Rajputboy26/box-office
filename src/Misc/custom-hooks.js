@@ -23,12 +23,11 @@ function usePersistedReducer(reducer, initialState, key) {
   });
 
   useEffect(() => {
-    localStorage.getItem(key, json.stringify(state));
+    localStorage.getItem(key, JSON.stringify(state));
   }, [state, key]);
 
   return [state, dispatch];
 }
-
 export function useShows(key = 'shows') {
-  return usePersistedReducer(showReducer, [], key);
+  return usePersistedReducer(showsReducer, [], key);
 }
