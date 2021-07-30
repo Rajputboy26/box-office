@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { useReducer, useEffect } from 'react';
 
 function showsReducer(prevState, action) {
@@ -18,12 +16,12 @@ function showsReducer(prevState, action) {
 function usePersistedReducer(reducer, initialState, key) {
   const [state, dispatch] = useReducer(reducer, initialState, initial => {
     const persisted = localStorage.getItem(key);
-
-    return persisted ? JSON.parse(parsisted) : initial;
+    console.log(localStorage);
+    return persisted ? JSON.parse(persisted) : initial;
   });
 
   useEffect(() => {
-    localStorage.getItem(key, JSON.stringify(state));
+    localStorage.setItem(key, JSON.stringify(state));
   }, [state, key]);
 
   return [state, dispatch];

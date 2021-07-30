@@ -12,7 +12,7 @@ const ShowGrid = ({ data }) => {
       {data.map(({ show }) => {
         const isStarred = starredShows.includes(show.id);
 
-        const onStarclick = () => {
+        const onStarClick = () => {
           if (isStarred) {
             dispatchStarred({ type: 'REMOVE', showId: show.id });
           } else {
@@ -26,7 +26,7 @@ const ShowGrid = ({ data }) => {
             name={show.name}
             image={show.image ? show.image.medium : IMAGE_NOT_FOUND}
             summary={show.summary}
-            onStarClick={onStarclick}
+            onStarClick={onStarClick}
             isStarred={isStarred}
           />
         );
