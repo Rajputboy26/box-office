@@ -85,3 +85,18 @@ export function useShow(showId) {
   }, [showId]);
   return state;
 }
+
+export function useLastResult(key = 'lastresult') {
+  const [results, setResults] = useState(() => {
+    const persisted = sessionStorage.getItem(key);
+    // console.log(localStorage);
+    return persisted ? JSON.parse(persisted) : '';
+  });
+
+  const setPersistedResult = newState => {
+    setResults(newState);
+    sessionStorage.setItem(key, JSON.stringify(newState));
+  };
+
+  return [results, setPersistedResult];
+}

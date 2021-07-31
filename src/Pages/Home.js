@@ -4,7 +4,7 @@ import MainPageLayout from '../Component/MainPageLayout';
 import ShowGrid from '../Component/Show/ShowGrid';
 import Default from '../Component/Show/Default';
 import { apiGet } from '../Misc/Config';
-import { useLastQuery } from '../Misc/custom-hooks';
+import { useLastQuery, useLastResult } from '../Misc/custom-hooks';
 import {
   RadioInputsWrapper,
   SearchButtonWrapper,
@@ -14,7 +14,7 @@ import CustomRadio from '../Component/CustomRadio';
 
 const Home = () => {
   const [input, setInput] = useLastQuery('');
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useLastResult(null);
   const [searchOption, setSearchOption] = useState('shows');
 
   const isShowSearch = searchOption === 'shows';
@@ -51,7 +51,6 @@ const Home = () => {
       );
     }
     return <Default />;
-    // return null;
   };
 
   return (

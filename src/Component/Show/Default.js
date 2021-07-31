@@ -4,7 +4,7 @@ import { apiGet } from '../../Misc/Config';
 import ShowGrid from './ShowGrid';
 
 const Default = () => {
-  const [shows, setShows] = useState(null);
+  const [shows, setShows] = useState('');
 
   useEffect(() => {
     const a = [];
@@ -14,18 +14,17 @@ const Default = () => {
         a.push(r);
       }
     }
-    console.log(a);
+
     const promises = a.map(showId => apiGet(`/shows/${showId}`));
-    // console.log(a);
 
     Promise.all(promises)
       .then(apiData => apiData.map(show => ({ show })))
       .then(results => {
         console.log(results);
-        // console.log(a);
         setShows(results);
       });
   }, []);
+  // console.log(shows);
 
   return <div>{shows && <ShowGrid data={shows} />}</div>;
 };

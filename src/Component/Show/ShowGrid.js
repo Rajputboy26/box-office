@@ -19,6 +19,10 @@ const ShowGrid = ({ data }) => {
             dispatchStarred({ type: 'ADD', showId: show.id });
           }
         };
+        const onNotFound = () => {
+          return null;
+        };
+
         return (
           <ShowCard
             key={show.id}
@@ -26,7 +30,7 @@ const ShowGrid = ({ data }) => {
             name={show.name}
             image={show.image ? show.image.medium : IMAGE_NOT_FOUND}
             summary={show.summary}
-            onStarClick={onStarClick}
+            onStarClick={show.id ? onStarClick : onNotFound}
             isStarred={isStarred}
           />
         );
