@@ -6,6 +6,7 @@ import { useShows } from '../Misc/custom-hooks';
 
 const Starred = () => {
   const [starred] = useShows();
+  // console.log(starred);
 
   const [shows, setShows] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,10 +15,13 @@ const Starred = () => {
   useEffect(() => {
     if (starred && starred.length > 0) {
       const promises = starred.map(showId => apiGet(`/shows/${showId}`));
+      // console.log(promises);
 
       Promise.all(promises)
         .then(apiData => apiData.map(show => ({ show })))
         .then(results => {
+          // console.log(results);
+
           setShows(results);
           setIsLoading(false);
         })
@@ -34,7 +38,7 @@ const Starred = () => {
     <MainPageLayout>
       {isLoading && <div>Shows are loading</div>}
       {error && <div>Error occured:{error}</div>}
-      {isLoading && !shows && <div>no shows here</div>}
+      {!isLoading && !shows && <div>no shows here</div>}
       {!isLoading && !error && shows && <ShowGrid data={shows} />}
     </MainPageLayout>
   );

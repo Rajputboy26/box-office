@@ -1,42 +1,33 @@
 import React, { useState, useEffect } from 'react';
+// import React, { useState } from 'react';
 import { apiGet } from '../../Misc/Config';
-import { useShows } from '../../Misc/custom-hooks';
 import ShowGrid from './ShowGrid';
 
 const Default = () => {
-  const [starred] = useShows();
-
   const [shows, setShows] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (starred && starred.length > 0) {
-      const promises = starred.map(showId => apiGet(`/shows/${showId}`));
-
-      Promise.all(promises)
-        .then(apiData => apiData.map(show => ({ show })))
-        .then(results => {
-          setShows(results);
-          setIsLoading(false);
-        })
-        .catch(err => {
-          setError(err.message);
-          setIsLoading(false);
-        });
-    } else {
-      setIsLoading(false);
+    const a = [];
+    while (a.length < 5) {
+      const r = Math.floor(Math.random() * 1000) + 1;
+      if (a.indexOf(r) === -1) {
+        a.push(r);
+      }
     }
-  }, [starred]);
+    console.log(a);
+    const promises = a.map(showId => apiGet(`/shows/${showId}`));
+    // console.log(a);
 
-  return (
-    <div>
-      {isLoading && <div>Shows are loading</div>}
-      {error && <div>Error occured:{error}</div>}
-      {!isLoading && !shows && <div>no shows here</div>}
-      {!isLoading && !error && shows && <ShowGrid data={shows} />}
-    </div>
-  );
+    Promise.all(promises)
+      .then(apiData => apiData.map(show => ({ show })))
+      .then(results => {
+        console.log(results);
+        // console.log(a);
+        setShows(results);
+      });
+  }, []);
+
+  return <div>{shows && <ShowGrid data={shows} />}</div>;
 };
 
 export default Default;

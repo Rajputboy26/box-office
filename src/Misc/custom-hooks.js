@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import { useReducer, useEffect, useState } from 'react';
 import { apiGet } from './Config';
 
