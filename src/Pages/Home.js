@@ -15,6 +15,7 @@ import CustomRadio from '../Component/CustomRadio';
 const Home = () => {
   const [input, setInput] = useLastQuery('');
   const [results, setResults] = useLastResult(null);
+  // const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
 
   const isShowSearch = searchOption === 'shows';
