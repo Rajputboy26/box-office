@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import ActorGrid from '../Component/Actor/ActorGrid';
 import MainPageLayout from '../Component/MainPageLayout';
 import ShowGrid from '../Component/Show/ShowGrid';
+import Default from '../Component/Show/Default';
 import { apiGet } from '../Misc/Config';
+import { useLastQuery } from '../Misc/custom-hooks';
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery('');
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
 
@@ -42,7 +44,7 @@ const Home = () => {
         <ActorGrid data={results} />
       );
     }
-    return null;
+    return <Default />;
   };
 
   return (
