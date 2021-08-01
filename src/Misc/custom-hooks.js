@@ -93,9 +93,9 @@ export function useLastResult(key = 'lastresult') {
     return persisted ? JSON.parse(persisted) : '';
   });
 
-  const setPersistedResult = newState => {
-    setResults(newState);
-    sessionStorage.setItem(key, JSON.stringify(newState));
+  const setPersistedResult = newResult => {
+    setResults(newResult);
+    sessionStorage.setItem(key, JSON.stringify(newResult));
   };
 
   return [results, setPersistedResult];

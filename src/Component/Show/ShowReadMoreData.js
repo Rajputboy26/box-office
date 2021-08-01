@@ -2,7 +2,7 @@
 import React from 'react';
 import IMG_PLACEHOLDER from '../../Images/not-found.png';
 import { Star } from '../Styled';
-import { Headline, MainDataWrapper, TagList } from './ShowMainData.styled';
+import { Headline, MainDataWrapper, TagList } from './ShowReadMoreData.styled';
 
 const ShowMainData = ({ name, rating, summary, tags, image }) => {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Home from './Pages/Home';
-import Show from './Pages/Show';
+import Show from './Pages/ReadMore';
 import Starred from './Pages/Starred';
 
 const theme = {
@@ -30,7 +30,9 @@ function App() {
         </Route>
 
         <Route>
-          <div>NOT FOUND</div>
+          <div style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+            NOT FOUND
+          </div>
         </Route>
       </Switch>
     </ThemeProvider>

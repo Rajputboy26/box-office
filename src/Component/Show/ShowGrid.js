@@ -15,6 +15,7 @@ const ShowGrid = ({ data }) => {
         const onStarClick = () => {
           if (isStarred) {
             dispatchStarred({ type: 'REMOVE', showId: show.id });
+            window.location.reload(false);
           } else {
             dispatchStarred({ type: 'ADD', showId: show.id });
           }

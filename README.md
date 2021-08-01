@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Try Box-Office web-app by clicking on [here](https://Rajputboy26.github.io/box-office)
+
+### or go to `https://Rajputboy26.github.io/box-office`
+
+### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

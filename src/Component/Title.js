@@ -10,12 +10,19 @@ const Title = ({ title, subtitle, by }) => {
           fontWeight: 'lighter',
           marginTop: 0,
           fontSize: 'medium',
-          color: 'blue',
+          color: 'grey',
         }}
       >
         {by}
       </p>
-      <p style={{ fontWeight: 'lighter', marginTop: 10, fontSize: 'small' }}>
+      <p
+        style={{
+          fontWeight: 'lighter',
+          marginTop: 10,
+          fontSize: 'small',
+          color: 'grey',
+        }}
+      >
         {subtitle}
       </p>
     </TitleWrapper>

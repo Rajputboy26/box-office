@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Cast from '../Component/Show/Cast';
 import Details from '../Component/Show/Details';
 import Seasons from '../Component/Show/Seasons';
-import ShowMainData from '../Component/Show/ShowMainData';
+import ShowMainData from '../Component/Show/ShowReadMoreData';
 import { useShow } from '../Misc/custom-hooks';
 import { InfoBlock, ShowPageWrapper } from './Show.styled';
 
@@ -12,10 +12,18 @@ const Show = () => {
   const { show, isLoading, error } = useShow(id);
 
   if (isLoading) {
-    return <div>Data is loading</div>;
+    return (
+      <div style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+        Data is loading
+      </div>
+    );
   }
   if (error) {
-    return <div>Error occured:{error}</div>;
+    return (
+      <div style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+        Error occured:{error}
+      </div>
+    );
   }
   return (
     <ShowPageWrapper>
